@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "gradle",
+            "name": "Run app",
+            "tasks": ["bootRun"],
+        },
+        
+        {
+            "type": "gradle",
+            "name": "Run tests",
+            "tasks": ["test"],
+        },
+        
+    ]
+}
