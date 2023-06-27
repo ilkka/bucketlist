@@ -6,6 +6,7 @@ plugins {
     kotlin("jvm") version "1.8.22"
     kotlin("plugin.spring") version "1.8.22"
     kotlin("plugin.jpa") version "1.8.22"
+    id("org.sonarqube") version "4.2.1.3168"
 }
 
 group = "dev.ilkka"
@@ -15,6 +16,14 @@ version = "0.0.1-SNAPSHOT"
 java { sourceCompatibility = JavaVersion.VERSION_17 }
 
 repositories { mavenCentral() }
+
+sonarqube {
+  properties {
+    property("sonar.projectKey", "ilkka_buckelist")
+    property("sonar.organization", "ilkka")
+    property("sonar.host.url", "https://sonarcloud.io")
+  }
+}
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
