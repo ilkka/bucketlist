@@ -3,7 +3,7 @@ package dev.ilkka.bucketlist.domain
 import jakarta.persistence.*
 
 @Entity
-data class BucketListItem(
+class BucketListItem(
         val title: String,
         val description: String,
         @ManyToMany
@@ -12,6 +12,6 @@ data class BucketListItem(
                 joinColumns = [JoinColumn(name = "bucketlistitem_id")],
                 inverseJoinColumns = [JoinColumn(name = "category_id")]
         )
-        val categories: Set<Category>,
+        val categories: Set<Category>? = null,
         @Id @GeneratedValue(strategy = GenerationType.AUTO) val id: Long? = null,
 )
