@@ -3,7 +3,7 @@ package dev.ilkka.bucketlist.domain
 import jakarta.persistence.*
 
 @Entity
-data class Category(
+class Category(
         val title: String,
         @ManyToMany(mappedBy = "categories") val items: Set<BucketListItem>? = null,
         @ManyToOne val parent: Category? = null,

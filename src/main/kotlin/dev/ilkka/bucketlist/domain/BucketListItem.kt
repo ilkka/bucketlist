@@ -3,7 +3,7 @@ package dev.ilkka.bucketlist.domain
 import jakarta.persistence.*
 
 @Entity
-data class BucketListItem(
+class BucketListItem(
         val title: String,
         val description: String,
         @ManyToMany
