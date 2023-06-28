@@ -7,6 +7,7 @@ plugins {
     kotlin("plugin.spring") version "1.8.22"
     kotlin("plugin.jpa") version "1.8.22"
     id("org.sonarqube") version "4.2.1.3168"
+    jacoco
 }
 
 group = "dev.ilkka"
@@ -18,11 +19,11 @@ java { sourceCompatibility = JavaVersion.VERSION_17 }
 repositories { mavenCentral() }
 
 sonarqube {
-  properties {
-    property("sonar.projectKey", "ilkka_buckelist")
-    property("sonar.organization", "ilkka")
-    property("sonar.host.url", "https://sonarcloud.io")
-  }
+    properties {
+        property("sonar.projectKey", "ilkka_buckelist")
+        property("sonar.organization", "ilkka")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
 }
 
 dependencies {
@@ -48,3 +49,14 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.withType<Test> { useJUnitPlatform() }
+
+tasks.test { finalizedBy(tasks.jacocoTestReport) }
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+        html.required.set(true)
+    }
+}
