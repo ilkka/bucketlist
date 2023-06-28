@@ -8,6 +8,7 @@ plugins {
     kotlin("plugin.jpa") version "1.8.22"
     id("org.sonarqube") version "4.2.1.3168"
     jacoco
+    id("io.freefair.github.dependency-submission") version "8.1.0"
 }
 
 group = "dev.ilkka"
