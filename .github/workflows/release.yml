@@ -1,0 +1,23 @@
+name: Release
+on:
+    push:
+        branches:
+            - main
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Setup JDK 17
+              uses: actions/setup-java@v2
+              with:
+                  java-version: 17
+                  distribution: "zulu"
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: "lts"
+            - name: Release
+              env:
+                  npm_config_yes: true
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: npx -p semantic-release@20 -p gradle-semantic-release-plugin@1 -p semantic-release-github-pullrequest@1 semantic-release
