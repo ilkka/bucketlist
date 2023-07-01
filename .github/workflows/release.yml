@@ -15,7 +15,7 @@ jobs:
                   distribution: "zulu"
             - uses: actions/setup-node@v3
               with:
-                  node-version: "lts"
+                  node-version: "lts/*"
             - name: Release
               env:
                   npm_config_yes: true
