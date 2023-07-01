@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner
 @RunWith(SpringRunner::class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class DummyBucketListTest {
+public class BucketListRepositoryTest {
     @Autowired private lateinit var entityManager: TestEntityManager
     @Autowired private lateinit var repository: BucketListItemRepository
 
