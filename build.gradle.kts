@@ -22,7 +22,7 @@ repositories { mavenCentral() }
 sonarqube {
     properties {
         property("sonar.projectKey", "ilkka_buckelist")
-        property("sonar.organization", "ilkka")
+        property("sonar.organization", "ilkka-dev")
         property("sonar.host.url", "https://sonarcloud.io")
     }
 }
