@@ -32,7 +32,7 @@ public class BucketListControllerTest {
                 )
                 .andExpect(status().isOk())
 
-        // Then the item should be returned by the API
+        // Then the item should be returned by the API when listing all items
         mvc.perform(MockMvcRequestBuilders.get("/bucketlist").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(
@@ -40,6 +40,15 @@ public class BucketListControllerTest {
                                 .json(
                                         "[{\"id\":1,\"title\":\"Test item\",\"description\":\"Test description\",\"categories\":[]}]"
                                 )
+                )
+
+        // And the item should be accessible by ID
+        mvc.perform(MockMvcRequestBuilders.get("/bucketlist/items/1").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(
+                        content().json(
+                                        "{\"id\":1,\"title\":\"Test item\",\"description\":\"Test description\",\"categories\":[]}"
+                        )
                 )
     }
 
