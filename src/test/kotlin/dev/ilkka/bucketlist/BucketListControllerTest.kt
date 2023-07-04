@@ -43,12 +43,16 @@ public class BucketListControllerTest {
                 )
 
         // And the item should be accessible by ID
-        mvc.perform(MockMvcRequestBuilders.get("/bucketlist/items/1").accept(MediaType.APPLICATION_JSON))
+        mvc.perform(
+                        MockMvcRequestBuilders.get("/bucketlist/items/1")
+                                .accept(MediaType.APPLICATION_JSON)
+                )
                 .andExpect(status().isOk())
                 .andExpect(
-                        content().json(
+                        content()
+                                .json(
                                         "{\"id\":1,\"title\":\"Test item\",\"description\":\"Test description\",\"categories\":[]}"
-                        )
+                                )
                 )
     }
 
