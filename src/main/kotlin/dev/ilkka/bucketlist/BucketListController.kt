@@ -17,14 +17,13 @@ class BucketListController {
     @Autowired private lateinit var bucketListItemRepository: BucketListItemRepository
 
     // Return a list of bucket list items
-    @GetMapping("", produces = [MediaType.APPLICATION_JSON_VALUE])
+    @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getBucketList(): List<BucketListItem> {
         return bucketListItemRepository.findAll().toCollection(destination = ArrayList())
     }
 
     // Add a new bucket list item
     @PostMapping(
-            "",
             consumes = [MediaType.APPLICATION_JSON_VALUE],
             produces = [MediaType.APPLICATION_JSON_VALUE]
     )
