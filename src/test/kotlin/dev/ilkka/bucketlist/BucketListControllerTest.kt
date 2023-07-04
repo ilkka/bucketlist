@@ -73,7 +73,10 @@ public class BucketListControllerTest {
                         .andExpect(status().isOk())
                         .andReturn()
         val json = result.response.contentAsString
-        val categoryId = json.substringAfter("id\":").substringBefore(",").toLong()
+        val categoryId =
+                json.substringAfter("id\":")
+                        .takeWhile { c: Char -> c.digitToIntOrNull() != null }
+                        .toLong()
 
         // When the item is saved through the API
         mvc.perform(
