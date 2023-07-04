@@ -80,7 +80,7 @@ public class BucketListControllerTest {
                         MockMvcRequestBuilders.post("/bucketlist")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(
-                                        "{\"title\": \"${item.title}\", \"description\": \"${item.description}\", \"categories\": [$categoryId}]}"
+                                        "{\"title\": \"${item.title}\", \"description\": \"${item.description}\", \"categories\": [$categoryId]}"
                                 )
                 )
                 .andExpect(status().isOk())
