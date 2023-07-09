@@ -75,7 +75,7 @@ public class BucketListControllerTest {
         val json = result.response.contentAsString
         val categoryId =
                 json.substringAfter("id\":")
-                        .takeWhile { c: Char -> c.digitToIntOrNull() != null }
+                        .takeWhile { c: Char -> c == '-' || c.digitToIntOrNull() != null }
                         .toLong()
 
         // When the item is saved through the API
