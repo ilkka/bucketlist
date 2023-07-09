@@ -1,5 +1,6 @@
 package dev.ilkka.bucketlist.domain
 
+import com.fasterxml.jackson.annotation.JsonManagedReference
 import jakarta.persistence.*
 
 @Entity
@@ -13,6 +14,7 @@ class BucketListItem(
                 joinColumns = [JoinColumn(name = "bucketlistitem_id")],
                 inverseJoinColumns = [JoinColumn(name = "category_id")]
         )
+        @JsonManagedReference
         val categories: Set<Category>? = null,
         @Id
         @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bucketlistitem_generator")
