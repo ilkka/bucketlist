@@ -6,7 +6,7 @@ plugins {
     kotlin("jvm") version "1.9.25"
     kotlin("plugin.spring") version "1.9.25"
     kotlin("plugin.jpa") version "1.9.25"
-    id("org.sonarqube") version "4.4.1.3373"
+    id("org.sonarqube") version "6.1.0.5360"
     jacoco
     id("io.freefair.github.dependency-submission") version "8.13.1"
 }
